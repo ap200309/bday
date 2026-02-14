@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Happy Birthday Apurva ❤️</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+
+
+body{
+  background:radial-gradient(ellipse at bottom,#0d1b2a 0%,#000 100%);
+  color:#fff;
+  line-height:1.6;
+  overflow-x:hidden;
+  position:relative;
+}
+
+section{
+  padding:60px 20px;
+  text-align:center;
+  position:relative;
+  z-index:2;
+}
+
+h1,h2{font-weight:300;margin-bottom:20px;}
+p{max-width:700px;margin:auto;font-size:18px;opacity:.9;}
+
+/* ===== INTRO ===== */
+#introScreen{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100vh;
+  display:grid;
+  place-items:center;
+  text-align:center;
+  z-index:9999;
+  background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+  overflow:hidden;
+}
+
+.intro-content{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap: 50px;;  /* controls spacing between text and envelope */
+  position:relative;
+  z-index:2;
+}
+
+/* ✨ Moving galaxy effect */
+#introScreen::before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:url("https://www.transparenttextures.com/patterns/stardust.png");
+  animation: moveStars 60s linear infinite;
+  opacity:0.3;
+  z-index:0;
+}
+
+@keyframes moveStars{
+  from{transform:translate(0,0);}
+  to{transform:translate(-500px,-500px);}
+}
+
+#introScreen h1{
+  font-family:'Great Vibes', cursive;
+  font-size:55px;
+  letter-spacing:2px;
+}
+
+#introScreen p{
+  opacity:0;
+  animation:fadeIn 2s ease forwards;
+  animation-delay:1s;
+}
+
+@keyframes fadeIn{
+  to{opacity:1;}
+}
+
+
+/* ✉ Envelope Button */
+.envelope-btn{
+  position:relative;
+  width:220px;
+  height:140px;
+  background:#ff4d6d;
+  cursor:pointer;
+  border-radius:8px;
+  box-shadow:0 20px 40px rgba(0,0,0,.5);
+  transition:.6s ease;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  color:#fff;
+  font-weight:bold;
+  letter-spacing:1px;
+  text-align: center;
+}
+
+/* Envelope flap */
+.envelope-btn::before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:#ff758f;
+  clip-path:polygon(0 0,100% 0,50% 60%);
+  transform-origin:top;
+  transition:.6s ease;
+}
+
+/* Hover = open flap */
+.envelope-btn:hover::before{
+  transform:rotateX(180deg);
+}
+
+.envelope-btn span{
+  position:relative;
+  z-index:2;
+}
+
+
+@keyframes showButton{
+  to{opacity:1;}
+}
+
+.intro-shooting-star{
+  position:absolute;
+  top:20%;
+  left:-100px;
+  width:2px;
+  height:120px;
+  background:linear-gradient(-45deg,white,transparent);
+  transform:rotate(45deg);
+  animation:introShoot 1.5s ease forwards;
+  z-index:1;
+}
+
+@keyframes introShoot{
+  to{
+    transform:translate(800px,300px) rotate(45deg);
+    opacity:0;
+  }
+}
+
+#introScreen button:hover{
+  transform:scale(1.1);
+  box-shadow:0 0 35px rgba(255,77,109,1);
+}
+
+/* ===== STARS ===== */
+.stars{
+  position:fixed;
+  width:100%;
+  height:100%;
+  z-index:0;
+  overflow:hidden;
+}
+
+.star{
+  position:absolute;
+  width:2px;
+  height:2px;
+  background:white;
+  border-radius:50%;
+  animation:twinkle 2s infinite alternate;
+}
+
+@keyframes twinkle{
+  from{opacity:.2;}
+  to{opacity:1;}
+}
+
+/* ===== MOON ===== */
+.moon{
+  position:fixed;
+  top:80px;
+  right:100px;
+  width:120px;
+  height:120px;
+  border-radius:50%;
+  background:radial-gradient(circle at 30% 30%,#fff,#d9d9d9 60%,#bfbfbf);
+  box-shadow:0 0 40px rgba(255,255,255,.4);
+  animation:floatMoon 8s ease-in-out infinite;
+  z-index:0;
+}
+
+@keyframes floatMoon{
+  0%{ transform:translateY(0);}
+  50%{ transform:translateY(-15px);}
+  100%{ transform:translateY(0);}
+}
+
+/* ===== SHOOTING STAR ===== */
+.shooting-star{
+  position:fixed;
+  width:2px;
+  height:100px;
+  background:linear-gradient(-45deg,white,transparent);
+  transform:rotate(45deg);
+  opacity:.7;
+  animation:shoot 1s linear forwards;
+  z-index:0;
+}
+
+@keyframes shoot{
+  to{transform:translate(600px,600px) rotate(45deg);opacity:0;}
+}
+
+/* ===== HEARTS ===== */
+.hearts{
+  position:fixed;
+  width:100%;
+  height:100%;
+  pointer-events:none;
+  z-index:1;
+}
+
+.heart{
+  position:absolute;
+  bottom:-20px;
+  width:20px;
+  height:20px;
+  background:#ff4d6d;
+  transform:rotate(45deg);
+  animation:float 8s linear infinite;
+  opacity:.6;
+}
+
+.heart:before,.heart:after{
+  content:'';
+  position:absolute;
+  width:20px;
+  height:20px;
+  background:#ff4d6d;
+  border-radius:50%;
+}
+
+.heart:before{top:-10px;left:0;}
+.heart:after{left:-10px;top:0;}
+
+@keyframes float{
+  to{transform:translateY(-110vh) rotate(360deg);opacity:0;}
+}
+
+/* ===== CONFETTI ===== */
+@keyframes fall{
+  to{transform:translateY(110vh) rotate(360deg);}
+}
+
+/* ===== HERO PHOTOS ===== */
+.hero-photos{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:30px;
+  margin-top:30px;
+  flex-wrap:wrap;
+}
+
+.photo-box{
+  width:380px;
+  height:600px;
+  border-radius:20px;
+  overflow:hidden;
+  box-shadow:0 15px 35px rgba(0,0,0,.6);
+}
+
+.photo-box img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.top-adjust{object-position:center 5%;}
+.adjust-middle{object-position:center 15%;}
+.adjust-bottom{object-position:center 25%;}
+
+/* ===== COUPLE SECTION FIXED ===== */
+.gallery{
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+  gap:40px;
+  flex-wrap:wrap;
+  margin-top:40px;
+}
+
+/* ===== FIXED COUPLE SIZE ===== */
+/* ===== COUPLE GLOW EFFECT ===== */
+.couple-frame{
+  width:340px;
+  height:520px;
+  border-radius:25px;
+  overflow:hidden;
+  box-shadow:0 15px 35px rgba(0,0,0,.6);
+  transition:all 0.5s ease;
+  position:relative;
+}
+
+.couple-frame img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transition:transform 0.5s ease, filter 0.5s ease;
+}
+
+/* ✨ Glow + Slight Zoom on Hover */
+/* 🌌 Pale Sky Blue Glow */
+.couple-frame:hover{
+  box-shadow:
+    0 0 20px rgba(25, 160, 244, 0.9),
+    0 0 40px rgba(135, 206, 250, 0.7),
+    0 0 70px rgba(135, 206, 250, 0.4);
+}
+
+
+.couple-frame:hover{
+  box-shadow:
+    0 0 20px rgba(173, 216, 230, 0.8),
+    0 0 50px rgba(173, 216, 230, 0.5);
+}
+
+/* ===== CHESS ===== */
+.chess-img{
+  width:750px;
+  border-radius:25px;
+  margin-top:25px;
+  box-shadow:0 15px 35px rgba(0,0,0,.6);
+}
+
+/* ===== BUTTONS ===== */
+button{
+  padding:10px 20px;
+  border:none;
+  border-radius:20px;
+  background:#ff4d6d;
+  color:#fff;
+  cursor:pointer;
+}
+
+#musicToggle{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  z-index:1000;
+}
+
+.footer{background:#000;padding:40px 20px;font-size:20px;}
+
+#loveLetter{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.95);
+  display:none;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  padding:20px;
+  z-index:3000;
+}
+
+.mainContent{opacity:0;transition:1.5s ease;}
+
+
+</style>
+</head>
+
+<body>
+
+<div id="introScreen">
+  <div class="intro-content">
+  <h1>Hey Apurva… 💖</h1>
+  <p>I made something just for you…</p>
+  <div class="envelope-btn" onclick="openSite()">
+      <span>Open My Heart 💌</span>
+  </div>
+  </div>
+</div>
+</div>
+
+<div class="stars"></div>
+<div class="moon"></div>
+<div class="hearts"></div>
+
+<div class="mainContent">
+
+<audio id="bgMusic" loop>
+  <source src="music/snowman.mpeg" type="audio/mpeg">
+</audio>
+
+<button id="musicToggle" onclick="toggleMusic()">🎵 Play Our Song</button>
+
+<section class="hero">
+  <h1><b> 💕 Happiest Birthday Apurva 💑</b></h1>
+  <div class="hero-photos">
+    <div class="photo-box"><img src="images/hero.jpeg"></div>
+    <div class="photo-box"><img src="images/hero_2.jpeg"></div>
+    <div class="photo-box"><img src="images/hero_3.jpeg" class="top-adjust"></div>
+  </div>
+</section>
+
+<section>
+  <h2> 💕 Where It All Began 💑</h2>
+  <p>This was our first photo together. I didn’t know then… that you’d become someone so special to me.</p>
+  <img src="images/gg.jpeg">
+</section>
+
+<!-- ✅ FIXED COUPLE SECTION -->
+<section>
+  <h2>💗 Us, In Little Moments 🫶</h2>
+  <p>
+    It’s not the big moments I love the most,
+    it’s the simple ones — where being with you feels like home.
+  </p>
+
+  <div class="gallery">
+
+  <div class="couple-frame">
+    <img src="images/couple1.jpeg">
+  </div>
+
+  <div class="couple-frame">
+    <img src="images/couple2.jpeg">
+  </div>
+
+  <div class="couple-frame">
+    <img src="images/couple3.jpeg" style="transform: scale(1.0);">
+  </div>
+
+</div>
+
+</section>
+
+<section>
+  <h2>You, Just Being You 🌸</h2>
+  <p>The way you smile, the way you care, the way you quietly make everything better.</p>
+  <div class="hero-photos">
+    <div class="photo-box"><img src="images/her1.jpeg"></div>
+    <div class="photo-box"><img src="images/her2.jpeg" class="adjust-middle"></div>
+    <div class="photo-box"><img src="images/her3.jpeg" class="adjust-bottom"></div>
+  </div>
+</section>
+
+<section>
+  <h2>The Woman I Admire 🏆</h2>
+  <p>Your strength, your intelligence, your determination — I admire you more than you know.</p>
+  <img src="images/chess.jpeg" class="chess-img">
+</section>
+
+<section class="footer">
+  <p id="typedText"></p>
+  <br>
+  <button onclick="goCelebrate()">🎉 Celebrate</button>
+
+  <br><br>
+  <button onclick="openLetter()">Click if you trust me 💖</button>
+</section>
+
+</div>
+
+
+<div id="loveLetter">
+  <div>
+    <h2>For You ❤️</h2>
+    <p>
+      I am so lucky to have you in my life.
+      You make everything brighter.
+      Your smile feels like my own little universe.
+      Happy Birthday, my love 💗.
+    </p>
+    <br>
+    <button onclick="closeLetter()">Close</button>
+  </div>
+</div>
+
+<script>
+// JS unchanged
+function openSite(){
+  document.getElementById("introScreen").style.transform="scale(1.2)";
+  document.getElementById("introScreen").style.opacity="0";
+  setTimeout(()=>{document.getElementById("introScreen").style.display="none";},1000);
+  document.querySelector(".mainContent").style.opacity="1";
+  document.getElementById("bgMusic").volume=0.4;
+  document.getElementById("bgMusic").play();
+  createStars();
+  createHearts();
+  typeWriter();
+}
+
+function toggleMusic(){
+  const m=document.getElementById("bgMusic");
+  m.paused?m.play():m.pause();
+}
+
+function createStars(){
+  const container=document.querySelector(".stars");
+  for(let i=0;i<150;i++){
+    const s=document.createElement("div");
+    s.classList.add("star");
+    s.style.top=Math.random()*100+"vh";
+    s.style.left=Math.random()*100+"vw";
+    s.style.animationDuration=(1+Math.random()*3)+"s";
+    container.appendChild(s);
+  }
+}
+
+function createHearts(){
+  const container=document.querySelector(".hearts");
+  setInterval(()=>{
+    const h=document.createElement("div");
+    h.classList.add("heart");
+    h.style.left=Math.random()*100+"vw";
+    container.appendChild(h);
+    setTimeout(()=>h.remove(),8000);
+  },600);
+}
+
+function confettiBurst(){
+  for(let i=0;i<80;i++){
+    const c=document.createElement("div");
+    c.style.position="fixed";
+    c.style.left=Math.random()*100+"vw";
+    c.style.top="-10px";
+    c.style.width="8px";
+    c.style.height="8px";
+    c.style.background="hsl("+Math.random()*360+",100%,50%)";
+    c.style.animation="fall 3s linear";
+    document.body.appendChild(c);
+    setTimeout(()=>c.remove(),3000);
+  }
+}
+
+setInterval(()=>{
+  const s=document.createElement("div");
+  s.classList.add("shooting-star");
+  s.style.top=Math.random()*50+"vh";
+  s.style.left=Math.random()*50+"vw";
+  document.body.appendChild(s);
+  setTimeout(()=>s.remove(),1000);
+},8000);
+
+function openLetter(){document.getElementById("loveLetter").style.display="flex";}
+function closeLetter(){document.getElementById("loveLetter").style.display="none";}
+
+const message="Again wishing you the happiest birthday, Apurva 🎂❤️ You are my favorite universe.";
+let i=0;
+function typeWriter(){
+  if(i<message.length){
+    document.getElementById("typedText").innerHTML+=message.charAt(i);
+    i++;
+    setTimeout(typeWriter,50);
+  }
+}
+
+window.addEventListener("load", ()=>{
+  const star=document.createElement("div");
+  star.classList.add("intro-shooting-star");
+  document.getElementById("introScreen").appendChild(star);
+
+  setTimeout(()=>star.remove(),1500);
+});
+
+function goCelebrate(){
+    window.location.href = "celeb.html";
+}
+
+</script>
+</body>
+</html>
